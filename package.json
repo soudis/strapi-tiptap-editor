@@ -59,7 +59,6 @@
     "@tiptap/extension-underline": "2.0.0-beta.199",
     "@tiptap/extension-youtube": "2.0.0-beta.199",
     "@tiptap/react": "2.0.0-beta.199",
-    "@tiptap/starter-kit": "2.0.0-beta.199",
     "react-icons": "4.4.0"
   },
   "peerDependencies": {

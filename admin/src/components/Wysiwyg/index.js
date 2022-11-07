@@ -45,7 +45,6 @@ import TextExtension from '@tiptap/extension-text'
 import { Color as ColorExtension } from '@tiptap/extension-color'
 import {mergeDeep} from "../../utils/merge";
 
-import StarterKit from '@tiptap/starter-kit';
 import ColumnExtension from '@gocapsule/column-extension';
 
 
@@ -178,7 +177,6 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
       settings.other && settings.other.wordcount ? CharacterCountExtension.configure() : null,
 
       // Columns
-      StarterKit,
       ColumnExtension,
 
       settings.youtube.enabled ? YouTubeExtension.configure({
