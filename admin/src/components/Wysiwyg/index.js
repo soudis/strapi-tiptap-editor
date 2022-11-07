@@ -187,7 +187,7 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
       preserveWhitespace: 'full',
     },
     onUpdate(ctx) {
-      onChange({target: {name, value: ctx.editor.getHTML()}})
+      onChange({target: {name, value: ctx.editor.getJSON()}})
     },
   })
 

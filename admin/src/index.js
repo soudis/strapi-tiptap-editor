@@ -1,6 +1,7 @@
 import pluginPkg from "../../package.json";
 import Wysiwyg from "./components/Wysiwyg";
 import pluginId from "./pluginId";
+import getTrad from './utils/getTrad';
 
 const name = pluginPkg.strapi.name;
 
