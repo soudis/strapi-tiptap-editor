@@ -278,13 +278,13 @@ export const Toolbar = ({ editor, toggleMediaLib, settings }) => {
                 icon={<BsLayoutSplit />}
                 label="Two columns"
                 className={['medium-icon', editor.isActive({'cssColumns': '2'}) ? 'is-active' : '']}
-                onClick={() => editor.chain().focus().toggleColumns(2).run()}
+                onClick={() => editor.chain().focus().setColumns(2).run()}
               />) : null }
               { settings.columns.includes('three') ? (<IconButton
                 icon={<BsLayoutThreeColumns />}
                 label="Three columns"
                 className={['medium-icon', editor.isActive({'cssColumns': '3'}) ? 'is-active' : '']}
-                onClick={() => editor.chain().focus().toggleColumns(3).run()}
+                onClick={() => editor.chain().focus().setColumns(3).run()}
               />) : null }
             </IconButtonGroup>
           </IconContext.Provider>

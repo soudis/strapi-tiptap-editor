@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/dasmikko/strapi-tiptap-editor#readme",
   "dependencies": {
+    "@gocapsule/column-extension": "^0.1.1",
     "@strapi/icons": "1.2.1",
     "@tiptap/core": "2.0.0-beta.199",
     "@tiptap/extension-blockquote": "2.0.0-beta.199",
@@ -58,6 +59,7 @@
     "@tiptap/extension-underline": "2.0.0-beta.199",
     "@tiptap/extension-youtube": "2.0.0-beta.199",
     "@tiptap/react": "2.0.0-beta.199",
+    "@tiptap/starter-kit": "2.0.0-beta.199",
     "react-icons": "4.4.0"
   },
   "peerDependencies": {
