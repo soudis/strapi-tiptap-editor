@@ -121,6 +121,7 @@ const CustomOrderedList = OrderedListExtension.extend({
 const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disabled, error, description, required, settings }) => {
   const { formatMessage } = useIntl();
   const [currentContent, setCurrentContent] = useState('');
+  const valueParsed = JSON.parse(value);
 
   const editor = useEditor({
     extensions: [
@@ -195,8 +196,8 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
   useEffect(() => {
     if (editor === null) return
     if (currentContent === '') {
-      setCurrentContent(value)
-      editor.commands.setContent(value, false)
+      setCurrentContent(valueParsed)
+      editor.commands.setContent(valueParsed, false)
     }
   }, [editor])
 
@@ -213,7 +214,7 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
               name={name}
               editor={editor}
               onChange={onChange}
-              value={value}
+              value={valueParsed}
               settings={settings}
             />
           }
