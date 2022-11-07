@@ -48,6 +48,8 @@ import {mergeDeep} from "../../utils/merge";
 import StarterKit from '@tiptap/starter-kit';
 import ColumnExtension from '@gocapsule/column-extension';
 
+import "@gocapsule/column-extension/src/index.css";
+
 
 const Wysiwyg = (opts) => {
   const { name, onChange, value, intlLabel, labelAction, disabled, error, description, required } = opts
@@ -126,9 +128,64 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
   const editor = useEditor({
     extensions: [
       // Text
+      DocumentExtension,
+      ParagraphExtension,
+      TextExtension,
+      BoldExtension,
+      StrikeExtension,
+      ItalicExtension,
+      GapcursorExtension,
+      ListItemExtension,
+      BulletListExtension,
+      HeadingExtension,
+
+      settings.disableOrderedListShorthand ? CustomOrderedList : OrderedListExtension,
+      settings.code ? CodeBlockExtension : null,
+      settings.code ? CodeExtension : null,
+      settings.blockquote ? BlockquoteExtension : null,
+      settings.horizontal ? HorizontalRuleExtension : null,
+      settings.hardBreak ? HardBreakExtension : null,
+
+      UnderlineExtension,
+      TextAlignExtension.configure({
+        types: ['heading', 'paragraph'],
+      }),
+      TextStyleExtension,
+      settings.color ? ColorExtension : null,
+
+      // Links
+      settings.links.enabled ? LinkExtension.configure({
+        autolink: settings.links.autolink,
+        openOnClick: settings.links.openOnClick,
+        linkOnPaste: settings.links.linkOnPaste,
+        HTMLAttributes: {
+          rel: settings.links.HTMLAttributes.rel
+        }
+      }) : null,
+
+      // Images
+      settings.image.enabled ? ImageExtension.configure({
+        inline: settings.image.inline,
+        allowBase64: settings.image.allowBase64,
+      }) : null,
+
+      // Table
+      settings.table ? TableExtension.configure({
+        allowTableNodeSelection: true,
+      }) : null,
+      settings.table ? TableRowExtension : null,
+      settings.table ? TableCellExtension : null,
+      settings.table ? TableHeaderExtension : null,
+
+      settings.other && settings.other.wordcount ? CharacterCountExtension.configure() : null,
+
       // Columns
-      StarterKit,
+      StarterKit.configure({ document: false }),
       ColumnExtension,
+
+      settings.youtube.enabled ? YouTubeExtension.configure({
+        inline: false,
+      }) : null,
     ],
     parseOptions: {
       preserveWhitespace: 'full',
