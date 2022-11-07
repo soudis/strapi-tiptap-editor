@@ -121,7 +121,7 @@ const CustomOrderedList = OrderedListExtension.extend({
 const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disabled, error, description, required, settings }) => {
   const { formatMessage } = useIntl();
   const [currentContent, setCurrentContent] = useState('');
-  const valueParsed = JSON.parse(value);
+  const valueParsed = JSON.parse(value).json;
 
   const editor = useEditor({
     extensions: [
@@ -188,8 +188,7 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
       preserveWhitespace: 'full',
     },
     onUpdate(ctx) {
-      console.log(ctx.editor.getJSON());
-      onChange({target: {name, value: JSON.stringify(ctx.editor.getJSON())}})
+      onChange({target: {name, value: JSON.stringify({json: ctx.editor.getJSON(), html: ctx.editor.getHTML()})}})
     },
   })
 
