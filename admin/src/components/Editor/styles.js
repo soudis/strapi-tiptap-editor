@@ -172,5 +172,22 @@ export default styled(Box)`
         vertical-align: middle;
       }
     }
+
+    .column-block {
+      width: 100%;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      gap: 24px;
+      padding: 8px 0;
+    }
+
+    .column {
+      overflow: auto;
+      border: 1px gray dashed;
+      border-radius: 8px;
+      padding: 8px;
+      margin: -8px;
+    }
   }
 `;
