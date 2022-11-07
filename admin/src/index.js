@@ -28,7 +28,24 @@ export default {
       ]
     );
 
-    app.addFields({ type: 'wysiwyg', Component: Wysiwyg });
+    app.addFields({ type: 'json', Component: Wysiwyg });
+
+    app.customFields.register({
+      name: 'tiptap',
+      pluginId: 'strapi-tiptap-editor',
+      type: 'json',
+      intlLabel: {
+        id: getTrad('strapi-tiptap-editor.label'),
+        defaultMessage: 'TipTap',
+      },
+      intlDescription: {
+        id: getTrad('strapi-tiptap-editor.description'),
+        defaultMessage: 'TipTap Rich Text Editor',
+      },
+      components: {
+        Input: Wysiwyg
+      },
+    });
 
     app.registerPlugin({
       id: pluginId,
