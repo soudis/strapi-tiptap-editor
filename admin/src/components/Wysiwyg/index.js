@@ -178,7 +178,7 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
       settings.other && settings.other.wordcount ? CharacterCountExtension.configure() : null,
 
       // Columns
-      StarterKit.configure({ document: false }),
+      StarterKit,
       ColumnExtension,
 
       settings.youtube.enabled ? YouTubeExtension.configure({
