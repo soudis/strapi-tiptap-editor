@@ -48,8 +48,6 @@ import {mergeDeep} from "../../utils/merge";
 import StarterKit from '@tiptap/starter-kit';
 import ColumnExtension from '@gocapsule/column-extension';
 
-import "@gocapsule/column-extension/src/index.css";
-
 
 const Wysiwyg = (opts) => {
   const { name, onChange, value, intlLabel, labelAction, disabled, error, description, required } = opts
