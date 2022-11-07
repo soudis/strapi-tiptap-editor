@@ -188,7 +188,7 @@ const WysiwygContent = ({ name, onChange, value, intlLabel, labelAction, disable
     },
     onUpdate(ctx) {
       console.log(ctx.editor.getJSON());
-      onChange({target: {name, value: ctx.editor.getJSON()}})
+      onChange({target: {name, value: JSON.stringify(ctx.editor.getJSON())}})
     },
   })
 
